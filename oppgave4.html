@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Oppgave 4</title>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        let HTMLcontent = document.getElementById('content');
+        let listOfNames = ['Per', 'Knut', 'Pål', 'Anders', 'Erik'];
+        listOfNames.sort();
+        listOfNames.reverse();
+        for (let i = 0; i < listOfNames.length; i++) {
+            HTMLcontent.innerHTML += "Navn: " + listOfNames[i] + '<br>';
+        }
+    </script>
+</body>
+</html>

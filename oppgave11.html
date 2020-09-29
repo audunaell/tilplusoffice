@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="info.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        var contentDiv = document.getElementById('content');
+        var buttonsArray = [1];
+
+        show();
+
+        function show() {
+            var html = "";
+            for (var index = 0; index < buttonsArray.length; index++) {
+                html += createButtons(buttonsArray[index]);
+            }
+            contentDiv.innerHTML = `<p>>${html}</p>`;
+        }
+
+        function createButtons(buttonNr) {
+            var jsonInfo = "";
+            for (var index = 0; index < plansinfo.plans.length; index++) {
+                jsonInfo += plansinfo.plans[index].day + ", " + plansinfo.plans[index].plan+ "</br>";
+            }
+            return `<button onclick="addButtons()">Button nr: ${buttonNr}</button></br>
+                    ${jsonInfo}
+                    `;
+        }
+
+
+        function addButtons() {
+            buttonsArray.push(buttonsArray.length + 1);
+            show();
+        }
+
+    </script>
+</body>
+</html>

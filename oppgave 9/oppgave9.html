@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Oppgave 9</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script src="sign.js"></script>
+</head>
+<body>
+    <canvas id="sign"></canvas>
+    <p>
+        <button id="resetSign">Reset</button>
+        <a id="download" download="image.png"><button type="button" onClick="download()">Save</button></a>
+    </p>
+<script>
+    $(document).ready(function() {
+        $('#sign').sign({
+            resetButton: $('#resetSign'),
+            lineWidth: 5,
+            width: 600,
+            height: 400
+        })
+    })
+
+    function download() {
+        var soTextCanBeAdded = document.getElementById('sign');
+        var textInPicture = soTextCanBeAdded.getContext("2d");
+        var timeOfSignature = new Date();
+        var ipAdress = myIP();
+
+        var textHtml = `Time: ${timeOfSignature}             IP: ${ipAdress}`;
+        textInPicture.fillText(textHtml, 5, 375);
+        var download = document.getElementById("download");
+        var image = document.getElementById("sign").toDataURL("image/jpg")
+            .replace("image/jpg", "image/octet-stream");
+        download.setAttribute("href", image);
+
+    }
+
+    function myIP() {
+        if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+        else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+        xmlhttp.open("GET", "http://api.hostip.info/get_html.php", false);
+        xmlhttp.send();
+
+        hostipInfo = xmlhttp.responseText.split("\n");
+
+        for (i = 0; hostipInfo.length >= i; i++) {
+            ipAddress = hostipInfo[i].split(":");
+            if (ipAddress[0] == "IP") return ipAddress[1];
+        }
+
+        return false;
+    }
+</script>
+</body>
+</html>

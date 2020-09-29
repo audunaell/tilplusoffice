@@ -1,0 +1,41 @@
+Oppgave 1 //lister tallene fra 1-10
+<?php
+	for($number = 1; $number <= 10; £number++){
+		echo "Nummer: $number <br>";
+	}
+?>
+
+Oppgave 2 //lister alle partal fra 0-20
+<?php
+	$number = 2;
+	while(number <= 20){
+		echo "Nummer: $number <br>";
+		$number = $number + 2;
+	}
+?>
+
+Oppgave 3 //lister alle primtal fra 1-100
+<?php
+	function prime_ornot($number)
+	{
+		if($number == 1) return 0;
+		for($checkNumber = 2; $checkNumber <= $number/2; $checkNumber++)
+		{
+			if($number % $checkNumber == 0) return 0;
+		}
+		return 1;
+	}
+	for($number = 1; $number <= 100; $number++){
+		$numberChecked = prime_ornot($number);
+		if($numberChecked == 1) echo "Primtalet $numberChecked <br>";
+	}
+?>
+
+Oppgave 4 //lager en liste med navn og viser den i omvendt alfabetisk
+<?php
+	$persons = array("Per", "Knut", "Pål", "Anders", "Erik");
+	rsort($persons);
+	for($index = 0; $index < count($persons); $index++){
+		echo "Navn: $persons[$index] <br>";
+	}
+?>

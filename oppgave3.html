@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Oppgave 3</title>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        let HTMLcontent = document.getElementById('content');        
+        for (let i = 2; i <= 100; i++) {
+            let dividedByTwo = i / 2;
+            let dividetByThree = i / 3;
+            let dividedByFive = i / 5;
+            let dividedBySeven = i / 7;
+            if (dividedByTwo === 1 || dividetByThree === 1 || dividedByFive === 1 || dividedBySeven === 1 ||
+                (Number.isInteger(dividedByTwo) === false && Number.isInteger(dividetByThree) === false &&
+                    Number.isInteger(dividedByFive) === false && Number.isInteger(dividedBySeven) === false)) {
+                HTMLcontent.innerHTML += 'That number is: ' + i + '<br>';           
+            }            
+        }
+    </script>
+</body>
+</html>
