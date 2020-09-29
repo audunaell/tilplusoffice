@@ -28,9 +28,14 @@
             for (var index = 0; index < plansinfo.plans.length; index++) {
                 jsonInfo += plansinfo.plans[index].day + ", " + plansinfo.plans[index].plan+ "</br>";
             }
-            return `<button onclick="addButtons()">Button nr: ${buttonNr}</button></br>
+            if (buttonNr > 1) {
+                return `<button onclick="addButtons()">Button nr: ${buttonNr}</button></br>
                     ${jsonInfo}
                     `;
+            } else {
+                return `<button onclick="addButtons()">Button nr: ${buttonNr}</button></br>`;
+            }
+            
         }
 
 
